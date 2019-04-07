@@ -19,6 +19,12 @@ class ListaRepositorio extends Component {
     }).isRequired,
   };
 
+  header = [
+    { titulo: 'Nome', valor: 'name' },
+    { titulo: 'Descrição', valor: 'description' },
+    { titulo: 'Link', valor: 'url' },
+  ];
+
   render() {
     const { favorites } = this.props;
     return (
@@ -27,7 +33,7 @@ class ListaRepositorio extends Component {
           {favorites.loading && <span>Carregando...</span>}
           {!!favorites.error && <span style={{ color: '#f00' }}>{favorites.error}</span>}
         </div>
-        <Table data={favorites.data} />
+        <Table header={this.header} data={favorites.data} />
       </Fragment>
     );
   }

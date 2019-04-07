@@ -5,17 +5,17 @@ const Table = props => (
   <TableStyle striped>
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Link</th>
+        {props.header.map(item => (
+          <th>{item.titulo}</th>
+        ))}
       </tr>
     </thead>
     <tbody>
       {props.data.map(item => (
         <tr key={item.id}>
-          <th scope="row">{item.name}</th>
-          <td>{item.description}</td>
-          <td>{item.url}</td>
+          {props.header.map(headerItem => (
+            <td>{item[headerItem.valor]}</td>
+          ))}
         </tr>
       ))}
     </tbody>
